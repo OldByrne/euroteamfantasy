@@ -36,7 +36,10 @@ as i add each result, this will update each players "playerstotalpoints"
 
 every time page is opened there is a calc run:
 	for each player in the standings table,
-	get their name, 4 countries, goalguess and then calc the points total from their 4 countries from the data on the country table,
+	get their name, 4 countries, goalguess and 
+	(then calc the points total from their 4 countries from the data on the country table,
 	this calc is not persisted and only used in that instant,
 	so get country1 country_id to get that country's "countrystotalpoints",
-	repeat for the other 3 and sum the 4 values
+	repeat for the other 3 and sum the 4 values)
+	OR
+	(do the calc on backend and have the value persisted as playerstotalpoints which is just requested on page load)
