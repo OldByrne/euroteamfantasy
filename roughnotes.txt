@@ -1,0 +1,42 @@
+database
+player table
+	player_id (PK)
+	playername
+	country1 (FK)
+	country2 (FK)
+	country3 (FK)
+	country4 (FK)
+	goalguess
+	playerstotalpoints (adding countrystotalpoints from all countries)
+
+country table
+	country_id (PK)
+	countryname
+	weighting (1 or 2)
+	wins
+	draws
+	goalsfor
+	goalsagainst
+	goalsdifference
+	countrystotalpoints (wins+draws+goalsdifference(which can be negative))
+
+frontend
+	standings table
+		playername
+		country1
+		country2
+		country3
+		country4
+		goalguess
+		playerstotalpoints (adding all of each country totalpoints)
+
+i manually enter every player entry
+i also manually input scores/goals into the country table as the games happen
+as i add each result, this will update each players "playerstotalpoints"
+
+every time page is opened there is a calc run:
+	for each player in the standings table,
+	get their name, 4 countries, goalguess and then calc the points total from their 4 countries from the data on the country table,
+	this calc is not persisted and only used in that instant,
+	so get country1 country_id to get that country's "countrystotalpoints",
+	repeat for the other 3 and sum the 4 values
